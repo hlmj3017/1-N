@@ -7,5 +7,7 @@ class Article(models.Model):
     content = models.TextField()
 
 class Comment(models.Model):
+    # id =
     content = models.TextField()
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    # article_id =
