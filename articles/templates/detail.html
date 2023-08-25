@@ -6,7 +6,7 @@
   <p>{{article.content}}</p>
 
   <hr>
-
+  <!-- hr: 밑에 선 -->
   <form action="{% url 'articles:comment_create' article_id=article.id %}" method="POST">
     {% csrf_token %}
     {{comment_form}}
@@ -18,6 +18,8 @@
     <p>댓글이 없습니다.</p>
   {% endif %}
 
+  <!-- 세번째 방법: 바로 html에 써서 호출하는 것 / 두번째 방법 전에는 for comment in comment_list-->
+  <!-- 두번째 방법은 comment_list = article.comment_set.all() 이므로-->
   {% for comment in article.comment_set.all %}
     <p>
       {{comment.content}} 
